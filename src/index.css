@@ -153,4 +153,24 @@
   .animate-reveal {
     @apply animate-fade-in;
   }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-card to-accent/30 shadow-sm;
+  }
+  
+  .soft-glow {
+    box-shadow: 0 0 15px rgba(155, 135, 245, 0.2);
+  }
+  
+  .animated-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+  }
 }
+
