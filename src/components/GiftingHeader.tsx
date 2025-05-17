@@ -13,19 +13,19 @@ const GiftingHeader = () => {
     setShowSparkle(true);
     
     // Generate multiple sparkles for enhanced effect
-    const newSparkles = Array(5).fill(0).map(() => ({
-      x: Math.random() * 80 - 40,
-      y: Math.random() * 80 - 40,
-      size: Math.random() * 0.6 + 0.4, // Size between 0.4 and 1
-      delay: Math.random() * 500 // Random delay for each sparkle
+    const newSparkles = Array(12).fill(0).map(() => ({
+      x: Math.random() * 100 - 50,
+      y: Math.random() * 100 - 50,
+      size: Math.random() * 0.8 + 0.4, // Size between 0.4 and 1.2
+      delay: Math.random() * 800 // Random delay for each sparkle
     }));
     
     setSparkleCount(newSparkles);
     
     // Random position for main sparkle effect
     setSparklePosition({
-      x: Math.random() * 40 - 20,
-      y: Math.random() * 40 - 20
+      x: Math.random() * 60 - 30,
+      y: Math.random() * 60 - 30
     });
     
     // Reset animation after completion
@@ -34,8 +34,8 @@ const GiftingHeader = () => {
       setTimeout(() => {
         setShowSparkle(false);
         setSparkleCount([]);
-      }, 500);
-    }, 2000);
+      }, 700);
+    }, 2200);
   };
   
   // Add a subtle automatic animation effect on first load
@@ -45,31 +45,40 @@ const GiftingHeader = () => {
   }, []);
   
   return (
-    <header className="relative py-6 md:py-10 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-background to-primary/5 animate-shimmer bg-[length:200%_100%]"></div>
+    <header className="relative py-8 md:py-12 overflow-hidden">
+      {/* Animated background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/5 to-primary/20 animated-gradient"></div>
+      
+      {/* Ornamental elements */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
       
       {/* Decorative circles in background */}
-      <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-gradient-to-br from-primary/10 to-transparent opacity-70"></div>
-      <div className="absolute -bottom-32 -left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-primary/10 to-transparent opacity-60"></div>
+      <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-gradient-to-br from-primary/20 to-transparent opacity-80"></div>
+      <div className="absolute -bottom-40 -left-20 w-96 h-96 rounded-full bg-gradient-to-tr from-primary/20 to-transparent opacity-70"></div>
+      
+      {/* Magical sparkle burst elements */}
+      <div className="absolute top-1/2 left-1/4 w-24 h-24 rounded-full bg-gradient-to-r from-primary/10 to-transparent blur-xl"></div>
+      <div className="absolute top-1/3 right-1/4 w-16 h-16 rounded-full bg-gradient-to-r from-primary/10 to-transparent blur-lg"></div>
       
       <div className="container max-w-5xl relative">
         <div className="flex items-center justify-between">
           <div 
-            className="flex items-center gap-2 cursor-pointer group" 
+            className="flex items-center gap-3 cursor-pointer group" 
             onClick={toggleAnimation}
           >
-            <div className={`relative p-3 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 transition-all duration-500 
-              ${isAnimated ? 'animate-float scale-110 shadow-lg shadow-primary/20' : 'hover:scale-105'}`}
+            <div className={`relative p-4 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 transition-all duration-500 shadow-lg soft-glow
+              ${isAnimated ? 'animate-float scale-110 shadow-primary/30' : 'hover:scale-105'}`}
             >
-              <Gift className={`h-6 w-6 text-primary transition-all duration-500 
+              <Gift className={`h-7 w-7 text-primary transition-all duration-500 
                 ${isAnimated ? 'rotate-12' : 'group-hover:scale-110'}`} 
               />
               
-              {/* Magic sparkle effect - enhanced with multiple sparkles */}
+              {/* Enhanced magic sparkle effect with multiple sparkles */}
               {showSparkle && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Sparkles 
-                    className={`h-4 w-4 text-primary animate-pulse absolute`}
+                    className={`h-5 w-5 text-primary animate-pulse absolute`}
                     style={{
                       transform: `translate(${sparklePosition.x}px, ${sparklePosition.y}px)`,
                       opacity: isAnimated ? 1 : 0,
@@ -96,7 +105,7 @@ const GiftingHeader = () => {
             </div>
             
             <div className="transition duration-500">
-              <h1 className="text-2xl font-bold tracking-tighter relative overflow-hidden">
+              <h1 className="text-2xl md:text-3xl font-bold tracking-tighter relative overflow-hidden">
                 <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent group-hover:underline decoration-2 underline-offset-4 decoration-primary/30">
                   Sentient
                 </span>{" "}
@@ -105,9 +114,9 @@ const GiftingHeader = () => {
                 </span>
               </h1>
               
-              {/* Subtle magical tagline with animation and gradient */}
-              <p className={`text-sm text-muted-foreground mt-1 transition-all duration-700 ${isAnimated ? 'opacity-100' : 'opacity-70'}`}>
-                <span className="bg-gradient-to-r from-primary/80 via-primary/60 to-primary/70 bg-clip-text text-transparent">
+              {/* Enhanced magical tagline with animation and gradient */}
+              <p className={`text-sm text-muted-foreground mt-2 transition-all duration-700 ${isAnimated ? 'opacity-100' : 'opacity-80'}`}>
+                <span className="bg-gradient-to-r from-primary/90 via-primary/70 to-primary/90 bg-clip-text text-transparent">
                   ✨ <em>Transforming intentions into perfect gifts</em> ✨
                 </span>
               </p>
@@ -115,17 +124,17 @@ const GiftingHeader = () => {
           </div>
           
           <div className="hidden md:block">
-            <div className={`text-sm bg-gradient-to-r from-muted/60 via-muted to-muted/60 px-3 py-1.5 rounded-md transition-all duration-500 shadow-sm border border-primary/10 ${isAnimated ? 'shadow-primary/10' : ''}`}>
+            <div className={`text-sm bg-gradient-to-r from-accent/70 via-accent/30 to-accent/70 px-4 py-2 rounded-md transition-all duration-500 shadow-md border border-primary/10 ${isAnimated ? 'shadow-primary/20' : ''}`}>
               Crafting perfectly meaningful moments
             </div>
           </div>
         </div>
         
         {/* Decorative alchemist elements */}
-        <div className="absolute -bottom-6 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-80"></div>
+        <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-90"></div>
         
-        {/* Additional magical pattern */}
-        <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-40 h-6 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-md"></div>
+        {/* Additional magical elements */}
+        <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-52 h-8 bg-gradient-to-r from-transparent via-primary/15 to-transparent blur-md"></div>
       </div>
     </header>
   );

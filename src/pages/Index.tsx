@@ -112,22 +112,43 @@ const Index = () => {
   };
   
   return (
-    <div className={`min-h-screen ${theme}-theme transition-colors duration-500`}>
+    <div className={`min-h-screen pb-16 ${theme}-theme transition-colors duration-500`}>
+      {/* Dynamic Background Elements */}
+      <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background to-background/80"></div>
+        
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gradient-to-b from-primary/5 to-transparent blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-primary/10 to-transparent blur-2xl"></div>
+        
+        {/* Subtle Pattern Overlay */}
+        <div className="absolute inset-0 opacity-5" 
+          style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%239C92AC\' fill-opacity=\'0.2\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E")'}}
+        ></div>
+      </div>
+
       <GiftingHeader />
       
-      <main className="container max-w-5xl pb-16">
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-center">
-            Discover the Perfect Gift
+      <main className="container max-w-5xl py-8 relative">
+        <div className="mb-10 relative">
+          <div className="absolute -top-10 left-1/2 w-40 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent transform -translate-x-1/2"></div>
+          
+          <h1 className="text-3xl md:text-4xl font-bold text-center mx-auto max-w-2xl">
+            <span className="bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
+              Discover the Perfect Gift
+            </span>
           </h1>
-          <p className="text-center text-muted-foreground mt-2 max-w-xl mx-auto">
+          
+          <p className="text-center text-muted-foreground mt-3 max-w-xl mx-auto">
             Our Sentient Gifting Alchemist helps you find uniquely meaningful gifts 
             tailored to your specific occasion and recipient.
           </p>
+          
+          <div className="absolute -bottom-6 left-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent transform -translate-x-1/2"></div>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <Card>
+          <Card className="overflow-hidden border border-primary/10 shadow-lg card-gradient">
             <CardContent className="p-6">
               <OccasionSelector 
                 selectedOccasion={selectedOccasion}
@@ -153,7 +174,10 @@ const Index = () => {
                     <Button variant="outline" onClick={resetSelections}>
                       Start Over
                     </Button>
-                    <Button onClick={generateRecommendations}>
+                    <Button 
+                      onClick={generateRecommendations} 
+                      className="bg-gradient-to-r from-primary/90 to-primary hover:from-primary hover:to-primary/90 transition-all duration-300 shadow-md hover:shadow-lg"
+                    >
                       Find Perfect Gifts
                     </Button>
                   </div>
