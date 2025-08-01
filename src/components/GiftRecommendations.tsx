@@ -13,75 +13,83 @@ interface GiftRecommendationsProps {
 const GiftRecommendations: React.FC<GiftRecommendationsProps> = ({ recommendations, isLoading }) => {
   if (isLoading) {
     return (
-      <div className="py-16 text-center">
-        <div className="inline-block relative">
+      <div className="space-y-4">
+        <Card className="p-8 text-center border-dashed border-primary/30 bg-white/90 backdrop-blur-sm">
           <div className="flex flex-col items-center space-y-4">
             <div className="relative">
-              <div className="animate-pulse-gentle w-14 h-14 rounded-full bg-gradient-to-br from-primary/30 to-primary/10"></div>
-              <Sparkles className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 text-primary animate-pulse" />
+              <div className="animate-pulse-gentle w-16 h-16 rounded-full bg-gradient-to-br from-primary/40 to-primary/20"></div>
+              <Sparkles className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 text-primary animate-pulse" />
             </div>
-            <span className="text-lg font-medium text-foreground">Crafting perfect gift ideas...</span>
+            <div className="space-y-2">
+              <span className="text-lg font-bold text-foreground block">Crafting perfect gift ideas...</span>
+              <span className="text-sm text-foreground/70 font-medium">This will just take a moment</span>
+            </div>
           </div>
-        </div>
-        {/* Decorative elements */}
-        <div className="absolute top-1/2 left-5 w-10 h-10 rounded-full bg-primary/10 animate-pulse-gentle opacity-70 blur-md"></div>
-        <div className="absolute top-1/3 right-5 w-8 h-8 rounded-full bg-primary/20 animate-pulse-gentle opacity-80 blur-md"></div>
+        </Card>
+        
+        {/* Loading skeleton cards */}
+        {[1, 2, 3].map((i) => (
+          <Card key={i} className="overflow-hidden bg-white/90 backdrop-blur-sm">
+            <div className="h-32 bg-gradient-to-br from-muted/60 to-muted/40 animate-pulse"></div>
+            <CardContent className="p-4 space-y-3">
+              <div className="h-4 bg-muted/60 rounded animate-pulse"></div>
+              <div className="h-3 bg-muted/40 rounded w-1/2 animate-pulse"></div>
+              <div className="space-y-2">
+                <div className="h-3 bg-muted/40 rounded animate-pulse"></div>
+                <div className="h-3 bg-muted/40 rounded w-3/4 animate-pulse"></div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     );
   }
   
   if (recommendations.length === 0) {
     return (
-      <div className="py-16 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/50"></div>
-        
-        <div className="relative z-10">
-          <div className="mb-4 opacity-80">
-            <div className="w-16 h-16 mx-auto rounded-full border-2 border-dashed border-primary/30 flex items-center justify-center">
-              <Heart className="w-6 h-6 text-primary/50" />
-            </div>
+      <Card className="p-8 text-center border-dashed border-primary/30 bg-white/90 backdrop-blur-sm">
+        <div className="space-y-4">
+          <div className="w-16 h-16 mx-auto rounded-full border-2 border-dashed border-primary/40 flex items-center justify-center bg-primary/10">
+            <Heart className="w-8 h-8 text-primary/60" />
           </div>
           
-          <p className="text-muted-foreground max-w-sm mx-auto">
-            Select an occasion, vibe, and personalization options to see gift recommendations
-          </p>
+          <div className="space-y-2">
+            <h3 className="font-bold text-foreground">Your Perfect Gifts Await</h3>
+            <p className="text-foreground/70 text-sm max-w-xs mx-auto font-medium">
+              Complete the questionnaire to discover personalized gift recommendations
+            </p>
+          </div>
+          
+          <div className="flex justify-center items-center gap-2 text-xs text-foreground/60 pt-2 font-medium">
+            <span>🎯</span>
+            <span>Personalized</span>
+            <span>•</span>
+            <span>✨</span>
+            <span>Curated</span>
+            <span>•</span>
+            <span>💝</span>
+            <span>Perfect</span>
+          </div>
         </div>
-        
-        {/* Subtle decorative elements */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
-      </div>
+      </Card>
     );
   }
   
   return (
-    <div className="animate-reveal space-y-8">
-      <div className="space-y-2 relative">
-        <div className="absolute -left-4 top-1/2 w-1.5 h-12 bg-primary/30 rounded-r-md transform -translate-y-1/2"></div>
-        <h2 className="text-2xl md:text-3xl font-bold text-center md:text-left">
-          <span className="relative">
-            Your Curated Gift Inspirations
-            <span className="absolute -bottom-1.5 left-0 w-full h-1 bg-gradient-to-r from-primary/40 to-transparent"></span>
-          </span>
-        </h2>
-        <p className="text-muted-foreground text-center md:text-left">
-          Thoughtfully selected based on your preferences
-        </p>
-      </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
-        {recommendations.map((gift) => (
-          <GiftCard key={gift.id} gift={gift} />
-        ))}
-      </div>
+    <div className="space-y-6">
+      {recommendations.map((gift, index) => (
+        <GiftCard key={gift.id} gift={gift} index={index} />
+      ))}
     </div>
   );
 };
 
 interface GiftCardProps {
   gift: GiftIdea;
+  index: number;
 }
 
-const GiftCard: React.FC<GiftCardProps> = ({ gift }) => {
+const GiftCard: React.FC<GiftCardProps> = ({ gift, index }) => {
   const formatPrice = (min: number, max: number) => {
     if (min === max) return `$${min}`;
     return `$${min} - $${max}`;
@@ -91,54 +99,84 @@ const GiftCard: React.FC<GiftCardProps> = ({ gift }) => {
   const isUnexpected = gift.unexpectedFactor > 70;
   
   return (
-    <Card className="overflow-hidden card-hover border h-full relative group shadow-md transition-all duration-500 hover:shadow-lg">
+    <Card className="overflow-hidden card-hover border h-full relative group shadow-lg transition-all duration-500 hover:shadow-xl animate-reveal bg-white/95 backdrop-blur-sm" 
+          style={{ animationDelay: `${index * 200}ms` }}>
       {/* Subtle shine effect on hover */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-20 z-10 bg-gradient-to-br from-white via-transparent to-transparent transition-opacity duration-700"></div>
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-10 z-10 bg-gradient-to-br from-white via-transparent to-transparent transition-opacity duration-700"></div>
       
-      {gift.imageUrl && (
-        <div className="relative h-52 w-full overflow-hidden">
-          <img 
-            src={gift.imageUrl} 
-            alt={gift.name}
-            className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" 
-          />
-          <button className="absolute top-3 right-3 p-2 bg-white/80 rounded-full hover:bg-white transition-colors shadow-sm hover:shadow z-10">
-            <Heart className="h-4 w-4 text-pink-500" />
-          </button>
-          
-          {/* Unexpected badge */}
-          {isUnexpected && (
-            <div className="absolute top-3 left-3 z-10">
-              <Badge variant="outline" className="bg-fun-light text-fun-dark border-fun-dark/20 font-medium shadow-sm px-3 py-1 flex items-center gap-1">
-                <Sparkles className="h-3 w-3" />
-                Unexpected Delight
+      <div className="grid grid-cols-1 sm:grid-cols-5 h-full">
+        {/* Image Section */}
+        {gift.imageUrl && (
+          <div className="relative sm:col-span-2 h-48 sm:h-full overflow-hidden">
+            <img 
+              src={gift.imageUrl} 
+              alt={gift.name}
+              className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" 
+            />
+            <button 
+              className="absolute top-3 right-3 p-2 bg-white/95 rounded-full hover:bg-white transition-colors shadow-sm hover:shadow z-10"
+              aria-label="Add to favorites"
+            >
+              <Heart className="h-4 w-4 text-pink-500" />
+            </button>
+            
+            {/* Unexpected badge */}
+            {isUnexpected && (
+              <div className="absolute top-3 left-3 z-10">
+                <Badge variant="outline" className="bg-white/95 text-primary border-primary/30 font-semibold shadow-sm px-2 py-1 flex items-center gap-1 text-xs">
+                  <Sparkles className="h-3 w-3" />
+                  Surprise
+                </Badge>
+              </div>
+            )}
+            
+            {/* Price overlay */}
+            <div className="absolute bottom-3 left-3 z-10">
+              <Badge className="bg-black/70 text-white border-0 font-semibold shadow-sm px-3 py-1">
+                {formatPrice(gift.price.min, gift.price.max)}
               </Badge>
             </div>
-          )}
-        </div>
-      )}
-      
-      <CardContent className="p-5 space-y-3 relative">
-        {/* Subtle decorative element */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
-        
-        <div className="space-y-1">
-          <h3 className="font-bold text-lg">{gift.name}</h3>
-          <div className="text-sm text-muted-foreground flex items-center">
-            <span className="font-medium">{formatPrice(gift.price.min, gift.price.max)}</span>
           </div>
-        </div>
+        )}
         
-        <p className="text-sm">{gift.narrative}</p>
-        
-        <div className="pt-3 flex flex-wrap gap-1.5">
-          {gift.traits.slice(0, 2).map((trait) => (
-            <Badge key={trait} variant="secondary" className="text-xs bg-primary/10 text-primary-foreground">
-              {trait.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-            </Badge>
-          ))}
-        </div>
-      </CardContent>
+        {/* Content Section */}
+        <CardContent className="sm:col-span-3 p-6 flex flex-col justify-between space-y-4">
+          <div className="space-y-3">
+            <div className="space-y-1">
+              <h3 className="font-bold text-xl leading-tight text-foreground">{gift.name}</h3>
+              <p className="text-sm text-foreground/70 font-medium">{gift.description}</p>
+            </div>
+            
+            <p className="text-sm leading-relaxed line-clamp-3 text-foreground/80">{gift.narrative}</p>
+          </div>
+          
+          <div className="space-y-3">
+            <div className="flex flex-wrap gap-1.5">
+              {gift.traits.slice(0, 3).map((trait) => (
+                <Badge key={trait} variant="secondary" className="text-xs bg-primary/15 text-primary border-primary/30 font-medium">
+                  {trait.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                </Badge>
+              ))}
+            </div>
+            
+            <div className="flex items-center justify-between pt-2">
+              <div className="flex items-center gap-2 text-xs text-foreground/60 font-medium">
+                <span>Surprise Level:</span>
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <div 
+                      key={i} 
+                      className={`w-2 h-2 rounded-full ${
+                        i < Math.ceil(gift.unexpectedFactor / 20) ? 'bg-primary' : 'bg-muted/60'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </div>
     </Card>
   );
 };

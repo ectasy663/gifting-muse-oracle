@@ -78,7 +78,7 @@ const PersonalizationPanel: React.FC<PersonalizationPanelProps> = ({
           Select up to 3 traits that describe the recipient
         </p>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 pt-2">
           {recipientTraits.map((trait) => (
             <TraitBubble
               key={trait.id}
@@ -153,7 +153,7 @@ interface TraitBubbleProps {
 const TraitBubble: React.FC<TraitBubbleProps> = ({ trait, isSelected, onToggle }) => {
   return (
     <div
-      className={`card-hover text-center p-3 rounded-lg cursor-pointer transition-colors ${
+      className={`card-hover text-center p-4 rounded-lg cursor-pointer transition-colors ${
         isSelected ? 'bg-primary text-primary-foreground' : 'bg-secondary hover:bg-secondary/80'
       }`}
       onClick={onToggle}

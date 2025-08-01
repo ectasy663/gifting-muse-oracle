@@ -30,20 +30,20 @@ const OccasionSelector: React.FC<OccasionSelectorProps> = ({
           Select the type of occasion you're celebrating
         </p>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-2 auto-rows-fr">
           {occasionArchetypes.map((occasion) => (
             <Card 
               key={occasion.id}
-              className={`card-hover relative p-4 cursor-pointer ${
+              className={`card-hover relative p-6 cursor-pointer flex flex-col ${
                 selectedOccasion === occasion.id 
                   ? 'ring-2 ring-primary bg-primary/5' 
                   : 'hover:bg-secondary/50'
               }`}
               onClick={() => onSelectOccasion(occasion.id)}
             >
-              <div className="text-center">
+              <div className="text-center flex flex-col flex-grow">
                 <h3 className="font-medium">{occasion.name}</h3>
-                <p className="text-sm text-muted-foreground mt-1">
+                <p className="text-sm text-muted-foreground mt-1 flex-grow">
                   {occasion.description}
                 </p>
               </div>

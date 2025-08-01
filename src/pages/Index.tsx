@@ -112,87 +112,166 @@ const Index = () => {
   };
   
   return (
-    <div className={`min-h-screen pb-16 ${theme}-theme transition-colors duration-500`}>
-      {/* Dynamic Background Elements */}
-      <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background to-background/80"></div>
+    <div className={`min-h-screen bg-gradient-to-br from-background via-accent/10 to-primary/10 transition-colors duration-500 relative overflow-hidden`}>
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/15 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-secondary/25 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-32 left-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
+        <div className="absolute bottom-20 right-10 w-28 h-28 bg-primary/25 rounded-full blur-2xl animate-float" style={{animationDelay: '6s'}}></div>
         
-        {/* Decorative Elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gradient-to-b from-primary/5 to-transparent blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-primary/10 to-transparent blur-2xl"></div>
-        
-        {/* Subtle Pattern Overlay */}
-        <div className="absolute inset-0 opacity-5" 
-          style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%239C92AC\' fill-opacity=\'0.2\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E")'}}
-        ></div>
+        {/* Gift box icons pattern */}
+        <div className="absolute top-1/4 left-1/4 opacity-10">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-primary/40">
+            <path d="M22 12v7a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-7m20-4V7a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1m5-6 2 2m4-2L11 4M7 8h10" stroke="currentColor" strokeWidth="2" fill="none"/>
+          </svg>
+        </div>
+        <div className="absolute top-3/4 right-1/3 opacity-10">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="text-primary/40">
+            <path d="M22 12v7a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-7m20-4V7a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1m5-6 2 2m4-2L11 4M7 8h10" stroke="currentColor" strokeWidth="2" fill="none"/>
+          </svg>
+        </div>
       </div>
 
       <GiftingHeader />
       
-      <main className="container max-w-5xl py-8 relative">
-        <div className="mb-10 relative">
-          <div className="absolute -top-10 left-1/2 w-40 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent transform -translate-x-1/2"></div>
-          
-          <h1 className="text-3xl md:text-4xl font-bold text-center mx-auto max-w-2xl">
-            <span className="bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
-              Discover the Perfect Gift
-            </span>
-          </h1>
-          
-          <p className="text-center text-muted-foreground mt-3 max-w-xl mx-auto">
-            Our Sentient Gifting Alchemist helps you find uniquely meaningful gifts 
-            tailored to your specific occasion and recipient.
-          </p>
-          
-          <div className="absolute -bottom-6 left-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent transform -translate-x-1/2"></div>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <Card className="overflow-hidden border border-primary/10 shadow-lg card-gradient">
-            <CardContent className="p-6">
-              <OccasionSelector 
-                selectedOccasion={selectedOccasion}
-                selectedVibe={selectedVibe}
-                onSelectOccasion={handleSelectOccasion}
-                onSelectVibe={handleSelectVibe}
-              />
-              
-              {selectedVibe && (
-                <>
-                  <Separator className="my-8" />
-                  
-                  <PersonalizationPanel 
-                    selectedIntentions={selectedIntentions}
-                    selectedTraits={selectedTraits}
-                    unexpectedFactor={unexpectedFactor}
-                    onIntentionChange={setSelectedIntentions}
-                    onTraitChange={setSelectedTraits}
-                    onUnexpectedFactorChange={setUnexpectedFactor}
+      <main className="relative z-10">
+        {/* Hero Section */}
+        <section className="container max-w-6xl pt-12 pb-8">
+          <div className="text-center space-y-6 mb-16">
+            <div className="relative inline-block">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-transparent animate-gradient-x">
+                Discover the Perfect Gift
+              </h1>
+              <div className="absolute -top-2 -right-2 w-8 h-8 text-primary/60">
+                ✨
+              </div>
+            </div>
+            
+            <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed font-medium">
+              Our Sentient Gifting Alchemist helps you find uniquely meaningful gifts 
+              tailored to your specific occasion and recipient. Let's create magic together.
+            </p>
+            
+            <div className="flex justify-center items-center gap-2 text-sm text-foreground/70 font-medium">
+              <span>🎁</span>
+              <span>Personalized</span>
+              <span>•</span>
+              <span>✨</span>
+              <span>Thoughtful</span>
+              <span>•</span>
+              <span>🎯</span>
+              <span>Perfect Match</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Main Content Grid */}
+        <section className="container max-w-7xl px-4 pb-20">
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 lg:gap-12">
+            
+            {/* Left Panel - Gift Selection */}
+            <div className="xl:col-span-2">
+              <Card className="overflow-hidden border border-primary/30 shadow-2xl bg-white/95 backdrop-blur-sm magic-border h-fit">
+                <CardContent className="p-8 lg:p-10">
+                  <div className="mb-8">
+                    <h2 className="text-2xl font-bold mb-2 flex items-center gap-2 text-foreground">
+                      <span className="text-2xl">🎯</span>
+                      Let's Find Your Perfect Gift
+                    </h2>
+                    <p className="text-foreground/70 font-medium">
+                      Answer a few questions to get personalized gift recommendations
+                    </p>
+                  </div>
+
+                  <OccasionSelector 
+                    selectedOccasion={selectedOccasion}
+                    selectedVibe={selectedVibe}
+                    onSelectOccasion={handleSelectOccasion}
+                    onSelectVibe={handleSelectVibe}
                   />
                   
-                  <div className="flex justify-between mt-8">
-                    <Button variant="outline" onClick={resetSelections}>
-                      Start Over
-                    </Button>
-                    <Button 
-                      onClick={generateRecommendations} 
-                      className="bg-gradient-to-r from-primary/90 to-primary hover:from-primary hover:to-primary/90 transition-all duration-300 shadow-md hover:shadow-lg"
-                    >
-                      Find Perfect Gifts
-                    </Button>
-                  </div>
-                </>
-              )}
-            </CardContent>
-          </Card>
-          
-          <div className="space-y-6">
-            <GiftRecommendations 
-              recommendations={recommendations}
-              isLoading={isLoading}
-            />
+                  {selectedVibe && (
+                    <>
+                      <Separator className="my-10" />
+                      
+                      <PersonalizationPanel 
+                        selectedIntentions={selectedIntentions}
+                        selectedTraits={selectedTraits}
+                        unexpectedFactor={unexpectedFactor}
+                        onIntentionChange={setSelectedIntentions}
+                        onTraitChange={setSelectedTraits}
+                        onUnexpectedFactorChange={setUnexpectedFactor}
+                      />
+                      
+                      <div className="flex flex-col sm:flex-row justify-between gap-4 mt-10">
+                        <Button 
+                          variant="outline" 
+                          onClick={resetSelections}
+                          className="order-2 sm:order-1 border-primary/30 text-foreground hover:bg-primary/5"
+                        >
+                          Start Over
+                        </Button>
+                        <Button 
+                          onClick={generateRecommendations} 
+                          className="order-1 sm:order-2 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold"
+                          size="lg"
+                        >
+                          ✨ Find Perfect Gifts
+                        </Button>
+                      </div>
+                    </>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+            
+            {/* Right Panel - Recommendations */}
+            <div className="xl:col-span-1">
+              <div className="sticky top-8">
+                <div className="mb-6">
+                  <h2 className="text-2xl font-bold mb-2 flex items-center gap-2 text-foreground">
+                    <span className="text-2xl">💝</span>
+                    Your Gift Recommendations
+                  </h2>
+                  <p className="text-foreground/70 text-sm font-medium">
+                    Curated especially for your occasion and recipient
+                  </p>
+                </div>
+                
+                <GiftRecommendations 
+                  recommendations={recommendations}
+                  isLoading={isLoading}
+                />
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
+
+        {/* Footer Section */}
+        <section className="bg-gradient-to-t from-primary/10 to-transparent py-16 mt-20">
+          <div className="container max-w-4xl text-center">
+            <h3 className="text-2xl font-bold mb-4 text-foreground">Ready to Give the Perfect Gift?</h3>
+            <p className="text-foreground/70 mb-8 max-w-2xl mx-auto font-medium">
+              Join thousands who have found their perfect gifts using our AI-powered recommendations. 
+              Every gift tells a story, and we help you write the perfect one.
+            </p>
+            <div className="flex flex-wrap justify-center gap-8 text-sm text-foreground/70 font-medium">
+              <div className="flex items-center gap-2">
+                <span className="text-primary">✓</span>
+                <span>Over 10,000 happy gifters</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-primary">✓</span>
+                <span>Personalized recommendations</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-primary">✓</span>
+                <span>Unique & thoughtful options</span>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );

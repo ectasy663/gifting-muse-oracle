@@ -16,7 +16,7 @@ export const occasionArchetypes: OccasionArchetype[] = [
   {
     id: "anniversary",
     name: "Anniversary",
-    description: "Commemorating a special date or event"
+    description: "Celebrating a meaningful milestone together"
   },
   {
     id: "graduation",
@@ -277,10 +277,170 @@ export const giftIdeas: GiftIdea[] = [
     intentions: ["create-memories", "foster-connection"],
     traits: ["outdoor-adventurer", "fitness-enthusiast"],
     unexpectedFactor: 80
+  },
+  {
+    id: "premium-tea-set",
+    name: "Premium Tea Ceremony Set",
+    description: "An elegant tea set with premium loose-leaf teas",
+    narrative: "For the mindful soul who appreciates quiet moments: A beautifully crafted tea ceremony set that transforms tea drinking into a meditation. Complete with premium loose-leaf teas from around the world, it's an invitation to slow down and savor life's simple pleasures.",
+    imageUrl: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=2371&q=80",
+    price: {
+      min: 70,
+      max: 180
+    },
+    occasions: ["anniversary", "just-because", "holiday"],
+    vibes: ["intimate", "comfort"],
+    intentions: ["encourage-relaxation", "create-memories"],
+    traits: ["minimalist", "coffee-enthusiast"],
+    unexpectedFactor: 45
+  },
+  {
+    id: "cooking-class-experience",
+    name: "Private Cooking Class Experience",
+    description: "A hands-on cooking class with a professional chef",
+    narrative: "For the foodie who loves to learn: A private cooking class that takes their culinary skills to the next level. Whether mastering pasta-making, perfecting knife techniques, or exploring exotic cuisines, they'll gain confidence in the kitchen while creating delicious memories.",
+    imageUrl: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=80",
+    price: {
+      min: 120,
+      max: 300
+    },
+    occasions: ["birthday-regular", "anniversary", "graduation"],
+    vibes: ["fun", "joyful"],
+    intentions: ["support-growth", "create-memories"],
+    traits: ["foodie", "outdoor-adventurer"],
+    unexpectedFactor: 65
+  },
+  {
+    id: "smart-fitness-mirror",
+    name: "Smart Home Fitness Mirror",
+    description: "An interactive mirror that streams fitness classes",
+    narrative: "For the fitness enthusiast who values convenience: A sleek mirror that doubles as a personal trainer, streaming live and on-demand fitness classes right to their home. From yoga to HIIT workouts, it's like having a premium gym membership that never closes.",
+    imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=80",
+    price: {
+      min: 800,
+      max: 1500
+    },
+    occasions: ["birthday-milestone", "promotion", "new-home"],
+    vibes: ["joyful", "fun"],
+    intentions: ["support-growth", "encourage-relaxation"],
+    traits: ["fitness-enthusiast", "tech-lover"],
+    unexpectedFactor: 85
+  },
+  {
+    id: "artisan-bookends",
+    name: "Handcrafted Artistic Bookends",
+    description: "Unique sculptural bookends made by local artisans",
+    narrative: "For the bookworm with an eye for beauty: Handcrafted bookends that turn their book collection into a gallery display. Each piece is unique, combining functionality with artistic expression – perfect for someone who appreciates both literature and craftsmanship.",
+    imageUrl: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=2428&q=80",
+    price: {
+      min: 45,
+      max: 120
+    },
+    occasions: ["birthday-regular", "new-home", "graduation"],
+    vibes: ["intimate", "comfort"],
+    intentions: ["inspire-creativity", "express-appreciation"],
+    traits: ["bookworm", "art-appreciator"],
+    unexpectedFactor: 40
+  },
+  {
+    id: "bluetooth-headphones",
+    name: "Premium Wireless Headphones",
+    description: "High-quality noise-canceling wireless headphones",
+    narrative: "For the music lover who craves audio perfection: Premium headphones that deliver studio-quality sound while blocking out the world's distractions. Whether they're commuting, working, or just enjoying their favorite albums, these transform any space into their personal concert hall.",
+    imageUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=80",
+    price: {
+      min: 200,
+      max: 400
+    },
+    occasions: ["birthday-regular", "graduation", "promotion"],
+    vibes: ["joyful", "fun"],
+    intentions: ["spark-joy", "support-growth"],
+    traits: ["music-lover", "tech-lover"],
+    unexpectedFactor: 30
+  },
+  {
+    id: "succulent-garden-kit",
+    name: "DIY Succulent Garden Kit",
+    description: "Everything needed to create a beautiful succulent arrangement",
+    narrative: "For the plant parent who loves hands-on projects: A complete kit to create their own stunning succulent garden. With carefully selected plants, beautiful containers, and expert guidance, it's perfect for both beginners and experienced plant enthusiasts looking for a new creative challenge.",
+    imageUrl: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=80",
+    price: {
+      min: 35,
+      max: 85
+    },
+    occasions: ["just-because", "new-home", "birthday-regular"],
+    vibes: ["comfort", "joyful"],
+    intentions: ["spark-joy", "inspire-creativity"],
+    traits: ["plant-parent", "minimalist"],
+    unexpectedFactor: 50
+  },
+  {
+    id: "gourmet-spice-collection",
+    name: "World Spice Collection",
+    description: "Premium spices and seasonings from around the globe",
+    narrative: "For the foodie who loves to experiment: A curated collection of exotic spices and seasonings that will transport their taste buds around the world. Each jar comes with recipe suggestions and origin stories, turning everyday cooking into culinary adventures.",
+    imageUrl: "https://images.unsplash.com/photo-1596040033229-a86002dc7a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=80",
+    price: {
+      min: 60,
+      max: 140
+    },
+    occasions: ["birthday-regular", "holiday", "just-because"],
+    vibes: ["fun", "joyful"],
+    intentions: ["inspire-creativity", "spark-joy"],
+    traits: ["foodie", "coffee-enthusiast"],
+    unexpectedFactor: 55
+  },
+  {
+    id: "meditation-cushion-set",
+    name: "Luxury Meditation Cushion Set",
+    description: "Ergonomic meditation cushions with natural materials",
+    narrative: "For the wellness-minded seeking inner peace: A beautifully crafted meditation set that makes mindfulness practice more comfortable and inviting. Made with sustainable materials and designed for proper posture, it's an investment in their mental well-being and daily tranquility.",
+    imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=80",
+    price: {
+      min: 80,
+      max: 160
+    },
+    occasions: ["just-because", "new-home", "holiday"],
+    vibes: ["comfort", "intimate"],
+    intentions: ["encourage-relaxation", "support-growth"],
+    traits: ["fitness-enthusiast", "minimalist"],
+    unexpectedFactor: 60
+  },
+  {
+    id: "portable-espresso-maker",
+    name: "Portable Espresso Maker",
+    description: "A compact, manual espresso maker for coffee on-the-go",
+    narrative: "For the coffee enthusiast who refuses to compromise on quality: A portable espresso maker that delivers café-quality shots anywhere. Perfect for camping trips, office use, or travel, it ensures they never have to settle for subpar coffee again.",
+    imageUrl: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=80",
+    price: {
+      min: 90,
+      max: 180
+    },
+    occasions: ["birthday-regular", "graduation", "just-because"],
+    vibes: ["fun", "joyful"],
+    intentions: ["spark-joy", "support-growth"],
+    traits: ["coffee-enthusiast", "outdoor-adventurer"],
+    unexpectedFactor: 70
+  },
+  {
+    id: "digital-photo-frame",
+    name: "Smart Digital Photo Frame",
+    description: "A WiFi-enabled frame that displays photos from anywhere",
+    narrative: "For anyone who treasures memories and connections: A smart photo frame that keeps loved ones close, even when they're far away. Family and friends can send photos directly to the frame, creating a constantly updating gallery of shared moments and making distance feel a little smaller.",
+    imageUrl: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2372&q=80",
+    price: {
+      min: 120,
+      max: 250
+    },
+    occasions: ["anniversary", "birthday-milestone", "new-home"],
+    vibes: ["intimate", "joyful"],
+    intentions: ["foster-connection", "create-memories"],
+    traits: ["tech-lover", "minimalist"],
+    unexpectedFactor: 40
   }
 ];
 
-// Simple recommendation function
+// Improved recommendation function
 export function getRecommendations(
   occasionId: string,
   vibe: string,
@@ -289,40 +449,56 @@ export function getRecommendations(
   unexpectedFactor: number,
   count: number = 3
 ): GiftIdea[] {
-  // Filter by occasion
-  let filtered = giftIdeas.filter(gift => 
-    gift.occasions.includes(occasionId)
-  );
+  // Start with all gifts
+  let available = [...giftIdeas];
   
-  // Filter by vibe if specified
-  if (vibe) {
-    filtered = filtered.filter(gift => 
-      gift.vibes.includes(vibe as any)
+  // Filter by occasion (more flexible - if gift has ANY matching occasion)
+  if (occasionId) {
+    available = available.filter(gift => 
+      gift.occasions.includes(occasionId)
     );
   }
   
-  // Score each gift based on matching intentions and traits
-  const scored = filtered.map(gift => {
+  // If we don't have enough gifts after occasion filtering, expand the search
+  if (available.length < count * 2) {
+    available = [...giftIdeas];
+  }
+  
+  // Score each gift based on multiple factors
+  const scored = available.map(gift => {
     let score = 0;
     
-    // Score based on intention matches
+    // Base score for occasion match
+    if (gift.occasions.includes(occasionId)) {
+      score += 10;
+    }
+    
+    // Score for vibe match
+    if (vibe && gift.vibes.includes(vibe as any)) {
+      score += 8;
+    }
+    
+    // Score based on intention matches (more weight)
     intentionIds.forEach(intention => {
       if (gift.intentions.includes(intention)) {
-        score += 2;
+        score += 5;
       }
     });
     
-    // Score based on trait matches
+    // Score based on trait matches (highest weight)
     traitIds.forEach(trait => {
       if (gift.traits.includes(trait)) {
-        score += 3;
+        score += 7;
       }
     });
     
     // Adjust score based on unexpected factor preference
     const unexpectedDiff = Math.abs(gift.unexpectedFactor - unexpectedFactor);
-    const unexpectedScore = 10 - (unexpectedDiff / 10);
+    const unexpectedScore = Math.max(0, 5 - (unexpectedDiff / 20));
     score += unexpectedScore;
+    
+    // Add some randomness to avoid always showing the same gifts
+    score += Math.random() * 3;
     
     return { gift, score };
   });
@@ -330,6 +506,32 @@ export function getRecommendations(
   // Sort by score (highest first)
   scored.sort((a, b) => b.score - a.score);
   
-  // Return top N recommendations
-  return scored.slice(0, count).map(item => item.gift);
+  // Ensure variety by picking from different price ranges and categories
+  const recommendations: GiftIdea[] = [];
+  const usedTraits = new Set<string>();
+  
+  for (const item of scored) {
+    if (recommendations.length >= count) break;
+    
+    // Try to avoid gifts with completely overlapping traits
+    const hasNewTrait = item.gift.traits.some(trait => !usedTraits.has(trait));
+    const isHighScore = item.score > 15;
+    
+    if (hasNewTrait || isHighScore || recommendations.length < count) {
+      recommendations.push(item.gift);
+      item.gift.traits.forEach(trait => usedTraits.add(trait));
+    }
+  }
+  
+  // If we still don't have enough, fill with remaining high-scoring items
+  if (recommendations.length < count) {
+    for (const item of scored) {
+      if (recommendations.length >= count) break;
+      if (!recommendations.includes(item.gift)) {
+        recommendations.push(item.gift);
+      }
+    }
+  }
+  
+  return recommendations.slice(0, count);
 }
